@@ -1,3 +1,4 @@
 *.eof
 ContinusIntegrationTestingConsoleApplication/obj
 ContinusIntegrationTestingConsoleApplication/bin
+Calculator/obj
