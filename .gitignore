@@ -2,3 +2,5 @@
 ContinusIntegrationTestingConsoleApplication/obj
 ContinusIntegrationTestingConsoleApplication/bin
 Calculator/obj
+Release/bin/
+Release/test/
