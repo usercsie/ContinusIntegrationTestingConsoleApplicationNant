@@ -2,11 +2,11 @@
   <project name="Hello World" default="build" basedir=".">
   <property name="nant.settings.currentframework" value="net-3.5"/>
   <!-- SourcePath -->  
-  <property name="dir.source" value="D:\[My]\Study\Continues Intergration\source\ContinusIntegrationTestingConsoleApplicationNant" />
-  <property name="dir.libs" value="${dir.source}\Libs" />
+  <property name="dir.root" value=".\" />
+  <property name="dir.libs" value="${dir.root}\Libs" />
   
   <!-- CompileResult -->
-  <property name="dir.release" value="${dir.source}\Release" />
+  <property name="dir.release" value="${dir.root}\Release" />
   <property name="dir.bin" value="${dir.release}\bin" />
   <property name="dir.test" value="${dir.release}\test" />
   
@@ -16,7 +16,7 @@
 	       output="${dir.bin}\Calculator.dll">		 
 		   
         <sources>
-          <include name="${dir.source}\Calculator\**\*.cs" />
+          <include name="${dir.root}\Calculator\**\*.cs" />
         </sources>	
 
 		<references>   
@@ -32,7 +32,7 @@
 	       output="${dir.bin}\ContinusIntegrationTestingConsoleApplication.exe">
 		   
         <sources>
-          <include name="${dir.source}\ContinusIntegrationTestingConsoleApplication\**\*.cs" />
+          <include name="${dir.root}\ContinusIntegrationTestingConsoleApplication\**\*.cs" />
         </sources>
 		            
 		<references>
@@ -54,7 +54,7 @@
       <csc target="library" 
 	       output="${dir.test}\Calculator-Test.dll">		   
         <sources>
-          <include name="${dir.source}\Calculator\testing\CalculatorTests.cs" />
+          <include name="${dir.root}\Calculator\testing\CalculatorTests.cs" />
         </sources>
 		            
 		<references>   
@@ -78,6 +78,7 @@
 	
 	<target name="clean">
       <delete dir="${dir.bin}" failonerror="false"/>
+	  <delete dir="${dir.test}" failonerror="false"/>
     </target>
 	
 	<target name="run" depends="build">
