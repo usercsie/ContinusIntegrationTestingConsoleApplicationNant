@@ -1,0 +1,6 @@
+D:\[My]\Study\Continues Intergration\source\ContinusIntegrationTestingConsoleApplication\Libs\Calculator.dll
+D:\[My]\Study\Continues Intergration\source\ContinusIntegrationTestingConsoleApplication\Libs\Calculator.pdb
+D:\[My]\Study\Continues Intergration\source\ContinusIntegrationTestingConsoleApplication\Calculator\obj\Debug\Calculator.dll
+D:\[My]\Study\Continues Intergration\source\ContinusIntegrationTestingConsoleApplication\Calculator\obj\Debug\Calculator.pdb
+D:\[My]\Study\Continues Intergration\source\ContinusIntegrationTestingConsoleApplication\Release\bin\Calculator.dll
+D:\[My]\Study\Continues Intergration\source\ContinusIntegrationTestingConsoleApplication\Release\bin\Calculator.pdb
