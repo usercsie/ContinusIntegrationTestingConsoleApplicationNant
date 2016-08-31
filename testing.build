@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+  <project name="Hello World" default="build" basedir=".">
+  <property name="nant.settings.currentframework" value="net-3.5"/>
+  <!-- SourcePath -->  
+  <property name="dir.root" value=".\" />
+  <property name="dir.libs" value="${dir.root}\Libs" />
+  
+  <!-- CompileResult -->
+  <property name="dir.release" value="${dir.root}\Release" />
+  <property name="dir.bin" value="${dir.release}\bin" />
+  <property name="dir.test" value="${dir.release}\test" />
+  
+    <target name="buildLibs_Calculator">
+      <csc target="library" 
+		   debug="Full"
+	       output="${dir.bin}\Calculator.dll">		 
+		   
+        <sources>
+          <include name="${dir.root}\Calculator\**\*.cs" />
+        </sources>	
+
+		<references>   
+		   <include name="${dir.libs}\nunit\nunit.framework.dll" />		   
+        </references>	
+		
+      </csc>
+	    
+    </target>  
+	
+	<target name="build" depends="buildLibs_Calculator">
+      <csc target="library" 
+	       output="${dir.test}\Calculator-Test.dll">		   
+        <sources>
+          <include name="${dir.root}\Calculator\testing\CalculatorTests.cs" />
+        </sources>
+		            
+		<references>   
+		   <include name="${dir.libs}\nunit\nunit.framework.dll" />	
+		   <include name="${dir.bin}\Calculator.dll" />		   
+        </references>				
+      </csc>
+	  
+	<copy todir="${dir.test}" flatten="true">
+         <fileset>
+             <include name="${dir.libs}\nunit\nunit.framework.dll" />
+			 <include name="${dir.bin}\Calculator.dll" />
+         </fileset>
+    </copy>	  
+	  
+    <nunit2>
+      <test assemblyname="${dir.test}\Calculator-Test.dll" />
+    </nunit2>
+	  
+    </target>
+	
+	<target name="clean">
+      <delete dir="${dir.bin}" failonerror="false"/>
+	  <delete dir="${dir.test}" failonerror="false"/>
+    </target>
+	
+	<target name="run" depends="build">
+      <exec program="${dir.bin}\ContinusIntegrationTestingConsoleApplication.exe"/>
+    </target>
+	
+  </project>
