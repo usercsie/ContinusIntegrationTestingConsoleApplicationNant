@@ -15,7 +15,7 @@ namespace Calculator.testing
             Calculator p = new Calculator();
             int result = p.Add(1, 1);
 
-            Assert.AreEqual(2, result);
+            Assert.AreEqual(1, result);
         }
 
         [Test]
